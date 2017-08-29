@@ -1,0 +1,309 @@
+\documentclass[a4paper, landscape]{article}
+\usepackage[margin=10mm]{geometry}
+\usepackage{tikz}
+\usepackage{pifont}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{roboto}
+\usepackage{fourier-orns}
+\usepackage{pdfpages}
+
+
+\pgfmathsetmacro{\cardwidth}{6}
+\pgfmathsetmacro{\cardheight}{9}
+
+\definecolor{cardblue}{HTML}{4D4DFF}
+\definecolor{cardred}{HTML}{FF4D4D}
+\definecolor{cardgrey}{HTML}{868685}
+\definecolor{cardpurple}{HTML}{ca1eac}
+
+
+\definecolor{stripgrey}{HTML}{656363}
+\definecolor{stripred}{HTML}{E60000}
+\definecolor{stripblue}{HTML}{0000E6}
+\definecolor{strippurple}{HTML}{871473}
+
+
+\newcommand{\bluebackgroundcolor}{cardblue}
+\newcommand{\redbackgroundcolor}{cardred}
+\newcommand{\greybackgroundcolor}{cardgrey}
+\newcommand{\purplebackgroundcolor}{cardpurple}
+
+
+\newcommand{\fontcolor}{white}
+\newcommand{\bluestripcolor}{stripblue}
+\newcommand{\redstripcolor}{stripred}
+\newcommand{\greystripcolor}{stripgrey}
+\newcommand{\purplestripcolor}{strippurple}
+
+
+
+\pgfmathsetmacro{\stripwidth}{1.2}
+\pgfmathsetmacro{\strippadding}{0.1}
+\pgfmathsetmacro{\textpadding}{0.15}
+
+
+\newcommand{\blueteamstriptext}{BLUE TEAM}
+\newcommand{\blueteamstripicon}{\ding{72}}
+\newcommand{\redteamstriptext}{RED TEAM}
+\newcommand{\redteamstripicon}{\bomb}
+\newcommand{\greyteamstriptext}{GREY TEAM}
+\newcommand{\greyteamstripicon}{?}
+\newcommand{\purpleteamstriptext}{PURPLE TEAM}
+\newcommand{\purpleteamstripicon}{?}
+
+\pgfmathsetmacro{\ruleheight}{0.3}
+
+\newcommand{\bluecard}[3] {
+\begin{tikzpicture}
+  % Draw Card
+  \fill[\bluebackgroundcolor] (0,0) rectangle (\cardwidth,\cardheight);
+  % Draw right strip with card role (President, Bomber, etc)
+  \fill[\bluestripcolor] (\cardwidth-\stripwidth, 0) rectangle (\cardwidth,\cardheight);
+  \node[rotate=270, \fontcolor, align=left, anchor=west] at (\cardwidth-0.5*\stripwidth,\cardheight-0.05*\cardheight) {\uppercase{{\normalfont\mdseries \small You are the}\\{\normalfont\bfseries\itshape \LARGE #1}}};
+  % Draw bottom strip
+  \fill[\bluestripcolor] (\cardwidth, 0) rectangle (0,\stripwidth);
+  % Draw team color text
+  \node[\fontcolor,font=\LARGE] at ({0.5*(\cardwidth-\stripwidth)}, 0.5*\stripwidth){\normalfont\bfseries \blueteamstriptext};
+  % Draw team icon
+  \node[\fontcolor,font=\Huge] at (\cardwidth-0.5*\stripwidth, 0.5*\stripwidth){\centering \blueteamstripicon};
+  % Draw role description
+  \node[below, \fontcolor,font=\small, text width=(\cardwidth - \stripwidth - 2*\textpadding)*1cm] at ({0.5*(\cardwidth-\stripwidth)}, \cardheight-0.5){
+    \begin{center}
+      \uppercase{\normalfont\bfseries #2}\\
+      \normalfont\mdseries #3
+    \end{center}
+    };
+\end{tikzpicture}
+}
+
+\newcommand{\redcard}[3] {
+\begin{tikzpicture}
+  % Draw Card
+  \fill[\redbackgroundcolor] (0,0) rectangle (\cardwidth,\cardheight);
+  % Draw right strip with card role (President, Bomber, etc)
+  \fill[\redstripcolor] (\cardwidth-\stripwidth, 0) rectangle (\cardwidth,\cardheight);
+  \node[rotate=270, \fontcolor, align=left, anchor=west] at (\cardwidth-0.5*\stripwidth,\cardheight-0.05*\cardheight) {\uppercase{{\normalfont\mdseries \small You are the}\\{\normalfont\bfseries\itshape \LARGE #1}}};
+  % Draw bottom strip
+  \fill[\redstripcolor] (\cardwidth, 0) rectangle (0,\stripwidth);
+  % Draw team color text
+  \node[\fontcolor,font=\LARGE] at ({0.5*(\cardwidth-\stripwidth)}, 0.5*\stripwidth){\normalfont\bfseries \redteamstriptext};
+  % Draw team icon
+  \node[\fontcolor,font=\Huge] at (\cardwidth-0.5*\stripwidth, 0.6*\stripwidth){\centering \redteamstripicon};
+  % Draw role description
+  \node[below, \fontcolor,font=\small, text width=(\cardwidth - \stripwidth - 2*\textpadding)*1cm] at ({0.5*(\cardwidth-\stripwidth)}, \cardheight-0.5){
+    \begin{center}
+      \uppercase{\normalfont\bfseries #2}\\
+      \normalfont\mdseries #3
+    \end{center}
+    };
+\end{tikzpicture}
+}
+
+\newcommand{\greycard}[3] {
+\begin{tikzpicture}
+  % Draw Card
+  \fill[\greybackgroundcolor] (0,0) rectangle (\cardwidth,\cardheight);
+  % Draw right strip with card role (President, Bomber, etc)
+  \fill[\greystripcolor] (\cardwidth-\stripwidth, 0) rectangle (\cardwidth,\cardheight);
+  \node[rotate=270, \fontcolor, align=left, anchor=west] at (\cardwidth-0.5*\stripwidth,\cardheight-0.05*\cardheight) {\uppercase{{\normalfont\mdseries \small You are the}\\{\normalfont\bfseries\itshape \LARGE #1}}};
+  % Draw bottom strip
+  \fill[\greystripcolor] (\cardwidth, 0) rectangle (0,\stripwidth);
+  % Draw team color text
+  \node[\fontcolor,font=\LARGE] at ({0.5*(\cardwidth-\stripwidth)}, 0.5*\stripwidth){\normalfont\bfseries \greyteamstriptext};
+  % Draw team icon
+  \node[\fontcolor,font=\Huge] at (\cardwidth-0.5*\stripwidth, 0.5*\stripwidth){\centering \greyteamstripicon};
+  % Draw role description
+  \node[below, \fontcolor,font=\small, text width=(\cardwidth - \stripwidth - 2*\textpadding)*1cm] at ({0.5*(\cardwidth-\stripwidth)}, \cardheight-0.5){
+    \begin{center}
+      \uppercase{\normalfont\bfseries #2}\\
+      \normalfont\mdseries #3
+    \end{center}
+    };
+\end{tikzpicture}
+}
+
+\newcommand{\purplecard}[3] {
+\begin{tikzpicture}
+  % Draw Card
+  \fill[\purplebackgroundcolor] (0,0) rectangle (\cardwidth,\cardheight);
+  % Draw right strip with card role (President, Bomber, etc)
+  \fill[\purplestripcolor] (\cardwidth-\stripwidth, 0) rectangle (\cardwidth,\cardheight);
+  \node[rotate=270, \fontcolor, align=left, anchor=west] at (\cardwidth-0.5*\stripwidth,\cardheight-0.05*\cardheight) {\uppercase{{\normalfont\mdseries \small You are the}\\{\normalfont\bfseries\itshape \LARGE #1}}};
+  % Draw bottom strip
+  \fill[\purplestripcolor] (\cardwidth, 0) rectangle (0,\stripwidth);
+  % Draw team color text
+  \node[\fontcolor,font=\LARGE] at ({0.5*(\cardwidth-\stripwidth)}, 0.5*\stripwidth){\normalfont\bfseries \purpleteamstriptext};
+  % Draw team icon
+  \node[\fontcolor,font=\Huge] at (\cardwidth-0.5*\stripwidth, 0.5*\stripwidth){\centering \purpleteamstripicon};
+  % Draw role description
+  \node[below, \fontcolor,font=\small, text width=(\cardwidth - \stripwidth - 2*\textpadding)*1cm] at ({0.5*(\cardwidth-\stripwidth)}, \cardheight-0.5){
+    \begin{center}
+      \uppercase{\normalfont\bfseries #2}\\
+      \normalfont\mdseries #3
+    \end{center}
+    };
+\end{tikzpicture}
+}
+
+\newcommand{\condition}[1]{
+``#1''
+}
+\newcommand{\character}[1]{
+\textbf{#1}
+}
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+
+
+  \redcard{Bomber}{Boom!}{When the game ends, everyone in your room gains the \condition{dead} condition\\\vspace{0.5cm} Red team wins if the \character{President} gains the \condition{dead} condition.}
+  \redcard{Engineer}{Arm the bomber!}{The \character{Bomber} must card share with the \character{Engineer} in order to explode.\\\vspace{0.5cm} You win if the \character{Bomber} explodes, and the \character{President} gains the \condition{dead} condition.}
+  \redcard{Martyr}{Spare Bomb!}{You are the backup for the \character{Bomber}: If the \character{Bomber} dies, or is not in the game, you take his responsibilities.\\\vspace{0.5cm} You win if the \character{President} gains the \condition{dead} condition.}
+  \redcard{Tinkerer}{Not quite engineer!}{ You are the backup for the \character{Engineer}: If the \character{Engineer} dies, or is not in the game, you take his responsibilities.\\\vspace{0.4cm} The \character{Bomber} must card share with the \character{Engineer} in order to explode.\\\vspace{0.4cm} You win if the \character{Bomber} explodes, and the \character{President} gains the \condition{dead} condition.}
+  \vspace{1mm}
+
+  \bluecard{President}{Keep your head down!}{Blue Team wins if you do not gain the \condition{dead} condition.}
+  \bluecard{Doctor}{Did someone call for a doctor?}{The \character{President} must card share with the \character{Doctor} to not die at the end of the game.\\\vspace{0.5cm} You win if the \character{President} does not gain the \condition{dead} condition.}
+  \bluecard{Nurse}{Get me 50cc, stat!}{You are the backup for the \character{Doctor}: If the \character{Doctor} dies, or is not in the game, you take his responsibilities.\\\vspace{0.5cm} The \character{President} must card share with the \character{Doctor} to not die at the end of the game.}
+  \bluecard{Vice-President}{The right hand man!}{You are the backup for the \character{President}: If the \character{President} dies, or is not in the game, you take his responsibilities.}
+
+  \includepdf[pages={1}]{cardsbackground.pdf}
+
+  \newpage
+  \redcard{Red team}{Help the bomber!}{Red team wins if the \character{President} gains the \condition{dead} condition due to the \character{Bomber} exploding.}
+  \redcard{Red team}{Help the bomber!}{Red team wins if the \character{President} gains the \condition{dead} condition due to the \character{Bomber} exploding.}
+  \redcard{Red team}{Help the bomber!}{Red team wins if the \character{President} gains the \condition{dead} condition due to the \character{Bomber} exploding.}
+  \redcard{Red team}{Help the bomber!}{Red team wins if the \character{President} gains the \condition{dead} condition due to the \character{Bomber} exploding.}
+
+
+  \vspace{1mm}
+  \bluecard{Blue Team}{Keep the President safe!}{You win if the \character{President} does not gain the \condition{dead} condition due to the \character{Bomber} exploding.}
+  \bluecard{Blue Team}{Keep the President safe!}{You win if the \character{President} does not gain the \condition{dead} condition due to the \character{Bomber} exploding.}
+  \bluecard{Blue Team}{Keep the President safe!}{You win if the \character{President} does not gain the \condition{dead} condition due to the \character{Bomber} exploding.}
+  \bluecard{Blue Team}{Keep the President safe!}{You win if the \character{President} does not gain the \condition{dead} condition due to the \character{Bomber} exploding.}
+
+  %
+  % \redcard{Red Team}{Find your team mates!}{Find the President, make sure he doesn't make it out alive.}
+  % \redcard{Player}{Find your team mates!}{Find the President, make sure he doesn't make it out alive.}
+  % \redcard{Player}{Find your team mates!}{Find the President, make sure he doesn't make it out alive.}
+  % \redcard{Player}{Find your team mates!}{Find the President, make sure he doesn't make it out alive.}
+  \includepdf[pages={1}]{cardsbackground.pdf}
+
+\newpage
+
+    \redcard{Shy Guy}{Shhhhh!}{You are \condition{shy}: You may not reveal any part of your card in any way.\\\vspace{0.5cm} The \condition{foolish} and \condition{shy} conditions cancel eachother out.}
+    \redcard{Spy}{Double Agent!}{The top of your card says RED, but you are actually on TEAM BLUE.}
+    \redcard{Coy Boy}{Someones a little shy...}{You are \condition{coy}: You may only Colour Share. You may not Colour Reveal, Card reveal, or Card Share.\\\vspace{0.5cm} The \condition{foolish} and \condition{coy} conditions cancel eachother out.}
+    \redcard{Negotiator}{It's all or nothing!}{You are \condition{Savvy}: You may only Card Share. You may not Colour Share, Colour Reveal, Card Reveal.}
+
+    \vspace{1mm}
+    \bluecard{Shy Guy}{Shhhhh!}{You are \condition{shy}: You may not reveal any part of your card in any way.\\\vspace{0.5cm} The \condition{foolish} and \condition{shy} conditions cancel eachother out.}
+    \bluecard{Spy}{Double Agent!}{The top of your card says BLUE, but you are actually on TEAM RED.}
+    \bluecard{Coy Boy}{Someones a little shy...}{You are \condition{coy}: You may only Colour Share. You may not Colour Reveal, Card reveal, or Card Share.\\\vspace{0.5cm} The \condition{foolish} and \condition{coy} conditions cancel eachother out.}
+    \bluecard{Negotiator}{It's all or nothing!}{You are \condition{Savvy}: You may only Card Share. You may not Colour Share, Colour Reveal, Card Reveal.}
+\includepdf[pages={1}]{cardsbackground.pdf}
+
+    \newpage
+    \redcard{Devil}{Liar, liar, pants on fire!}{You are a \condition{liar}: you must always lie when speaking. You do not have to lie if it's not verbal.\\\vspace{0.5cm} The \condition{honest} and \condition{liar} conditions cancel eachother out.}
+    \redcard{Angel}{The truth, the whole truth and nothing but the truth!}{You are \condition{honest}: You must always tell the truth when speaking. You do not have to tell the truth if it's not verbal.\\\vspace{0.5cm} The \condition{liar} and \condition{honest} conditions cancel eachother out.}
+    \redcard{Blind}{No peeking!}{You are \condition{blind}: Do your best to never open your eyes.\\\vspace{0.5cm} Don’t worry, it is a short game.}
+    \redcard{Mime}{...}{Do your best to not make any noise.}
+
+    \vspace{1mm}
+    \bluecard{Devil}{Liar, liar, pants on fire!}{You are a \condition{liar}: you must always lie when speaking. You do not have to lie if it's not verbal.\\\vspace{0.5cm} The \condition{honest} and \condition{liar} conditions cancel eachother out.}
+    \bluecard{Angel}{The truth, the whole truth and nothing but the truth!}{You are \condition{honest}: You must always tell the truth when speaking. You do not have to tell the truth if it's not verbal.\\\vspace{0.5cm} The \condition{liar} and \condition{honest} conditions cancel eachother out.}
+    \bluecard{Blind}{No peeking!}{You are \condition{blind}: Do your best to never open your eyes.\\\vspace{0.5cm} Don’t worry, it is a short game.}
+    \bluecard{Mime}{...}{Do your best to not make any noise.}
+
+\includepdf[pages={1}]{cardsbackground.pdf}
+
+    \newpage
+
+    \redcard{Trader}{Have I got a deal for you!}{You may trade your card for the buried card. You may not peek at the card before trading. You assume all powers and the allegiance of your newly acquired card.\\\vspace{0.5cm} If you trade for another \character{Trader} card, you may not use it's power before the next round.}
+    \greycard{Private Detective}{WATSON!!!}{At the end of the game, before anyone else reveals their cards, you must publicly announce the identity of the buried card. If correct, you win. If incorrect, you lose.}
+    \redcard{Voyeur}{Take a sneaky peak!}{At any time, you may look at the buried card. Ooh la la!}
+    \bluecard{Trader}{Have I got a deal for you!}{You may trade your card for the buried card. You may not peek at the card before trading. You assume all powers and the allegiance of your newly acquired card.\\\vspace{0.5cm} If you trade for another \character{Trader} card, you may not use it's power before the next round.}
+    \vspace{1mm}
+
+    \bluecard{Voyeur}{Take a sneaky peak!}{At any time, you may look at the buried card. Ooh la la!}
+    \purplecard{Amnesiac}{Who's team am I on again???}{At the end of the game, before anyone else reveals their cards, you must declare which team you are on by saying, ``I remember which team I am on. I am on team ...''. Choosing either: The blue team, the red team, or nobody's team. If you choose the team with a minority of players (or picked nobody's team in case of a tie), you win.}
+    \redcard{Interrogator}{Tell me what you know!}{Once per round you may privately reveal to any player in the room and ask them a single yes/no question to which they must answer honestly. If they sincerely don’t know the answer to the question, then they should indicate such}
+    \bluecard{Interrogator}{Tell me what you know!}{Once per round you may privately reveal to any player in the room and ask them a single yes/no question to which they must answer honestly. If they sincerely don’t know the answer to the question, then they should indicate such}
+
+\includepdf[pages={1}]{cardsbackground.pdf}
+
+\newpage
+\greycard{Ahab}{Ahoy Matey!}{You win if \character{Moby} gains the \condition{dead} condition, and you do not.}
+\greycard{Mobey}{Splash...}{You win if \character{Ahab} gains the \condition{dead} condition, and you do not.}
+\greycard{Wife}{First-lady.}{You win if you are in the same room as the \character{President} at the end of the game, and the \character{Mistress} is not.}
+\greycard{Mistress}{Bit on the side.}{You win if you are in the same room as the \character{President} at the end of the game, and the \character{Wife} is not.}
+\vspace{1mm}
+\greycard{Frotteur}{Can't keep your hands to yourself!}{If you touch every player by the end of the game, you win.\\\vspace{0.5cm} If the \character{Prude} grabs your wrist, you lose.}
+\greycard{Prude}{Don't let go, no matter what!}{You win if you grab the wrist of the \character{Frotteur}. You may only grab the wrist of one player per game.\\\vspace{0.5cm} Once you grab a wrist, you must hold on until the end of the game. You and the person you have grabbed cannot be seperated: you must both be hostages, or neither of you.}
+\greycard{Sniper}{I never miss a shot!}{At the end of the game, before anyone reveals their cards, you must publically announce any one player in the game to shoot. You win if you shoot the \character{Target}.\\\vspace{0.25cm} The shot player gains the \condition{dead} condition, this triggers backup characters, if available.}
+\greycard{Target}{Keep it secret, keep it safe!}{You win if the \character{Sniper} does not shoot you at the end of the game.}
+
+\includepdf[pages={1}]{cardsbackground.pdf}
+
+\newpage
+
+\greycard{Decoy}{Look like a big red dot!}{You win if the \character{Sniper} shoots you at the end of the game.}
+\greycard{Rock}{You're rocky...}{You win if you are in the same room as \character{Scissors} at the end of the game, and \character{Paper} is not.}
+\greycard{Paper}{You're papery...}{You win if you are in the same room as \character{Rock} at the end of the game, and \character{Scissors} is not.}
+\greycard{Scissors}{You're sharp...}{You win if you are in the same room as \character{Paper} at the end of the game, and \character{Rock} is not.}
+
+\vspace{1mm}
+\greycard{Juliet}{Find that boy!}{You win if you are in the same room as \character{Romeo} and you both gain the \condition{dead} condition at the end of the game.}
+\greycard{Romeo}{Find that boy!}{You win if you are in the same room as \character{Juliet} and you both gain the \condition{dead} condition at the end of the game.}
+
+\includepdf[pages={1}]{cardsbackground.pdf}
+\newpage
+
+\redcard{Ambassador}{Loud and proud!}{You must immediately permanently publically reveal your card.\\\vspace{0.5cm} You may move freely between rooms, and cannot be selected as a hostage. However, you cannot take part in any vote.\\\vspace{0.5cm} You are \condition{Immune}: You cannot be affected by any conditions.}
+\bluecard{Ambassador}{Loud and proud!}{You must immediately permanently publically reveal your card.\\\vspace{0.5cm} You may move freely between rooms, and cannot be selected as a hostage. However, you cannot take part in any vote.\\\vspace{0.5cm} You are \condition{Immune}: You cannot be affected by any conditions.}
+\redcard{Agent}{No-one gets in your way!}{Once per round, you may privately reveal your card to a player and force that player to card share with you. You must verbally say to the target player, "I’m the AGENT. You MUST reveal your card to me."}
+\bluecard{Agent}{No-one gets in your way!}{Once per round, you may privately reveal your card to a player and force that player to card share with you. You must verbally say to the target player, "I’m the AGENT. You MUST reveal your card to me."}
+
+\vspace{1mm}
+\redcard{Bouncer}{Send them packing!}{If you are in a room that has more players than the other room, you may privately reveal your card to any player and verbally tell them, “get out!” When you do, that player must immediately change rooms. You may do this at any time EXCEPT FOR THE LAST ROUND.}
+\bluecard{Bouncer}{Send them packing!}{If you are in a room that has more players than the other room, you may privately reveal your card to any player and verbally tell them, “get out!” When you do, that player must immediately change rooms. You may do this at any time EXCEPT FOR THE LAST ROUND.}
+\bluecard{Bully}{Don't take no for an answer!}{When a player agrees to color share with you, private reveal instead. They must private reveal their card too.}
+\redcard{Bully}{Don't take no for an answer!}{When a player agrees to color share with you, private reveal instead. They must private reveal their card too.}
+
+\includepdf[pages={1}]{cardsbackground.pdf}
+
+\newpage
+\greycard{Gambler}{It's all or nothing}{Before the last round begins, you must publically announce which team you think is going to win. If you are correct, you win. If not, you lose.}
+\greycard{Butler}{At your service.}{You win if you are in the same room as the \character{Maid} and \character{President} at the end of the game.}
+\greycard{Maid}{At your service.}{You win if you are in the same room as the \character{Butler} and \character{President} at the end of the game.}
+\greycard{Telepath}{See in to the future...}{Before the last hostage exchange, you must publically announce what player is coming into your current room. You win if you are correct.}
+
+\vspace{1mm}
+\greycard{Hot Potato}{Hot, hot, hot!!!}{You lose at the end of the game\\\vspace{0.5cm} Any player that card shares, or even color reveals, with you must immediately exchange his card for yours: You gain his card, and assume his previous role. He becomes the Hot Potato.}
+\greycard{Rival}{My Nemisis!!!!}{You win if you are \emph{not} in the same room as the \character{President} when the game ends.}
+\greycard{Survivor}{I'm a survivor,\\ I'm not gon' give up...}{You win if you do not gain the \condition{dead} condition.}
+\greycard{Intern}{Do your best!}{You win if you are in the same room as the \character{President} when the game ends.}
+
+\includepdf[pages={1}]{cardsbackground.pdf}
+\newpage
+
+\greycard{Born Leader}{Born to lead!}{You win if you are a \character{Leader} at the end of the game.}
+\greycard{Born Leader}{Born to lead!}{You win if you are a \character{Leader} at the end of the game.}
+\greycard{Born Leader}{Born to lead!}{You win if you are a \character{Leader} at the end of the game.}
+\greycard{Anarchist}{I like to watch the world burn!}{You win if you helped overthrow a \character{Leader} in the majority of rounds.}
+
+\vspace{1mm}
+\greycard{Minion}{Master must always lead!}{You win if a \character{Leader} is never overthrown in the same room as you.}
+\greycard{Victim}{That bomb's got your name on it!}{You win if you gain the \condition{dead} condition due to the Bomber exploding.}
+\redcard{Red Fist}{Duck and dodge!}{The Red Team wins if you are not in the same room as the Blue Drone at the end of the game.}
+\bluecard{Blue Drone}{Beep, bop, boop!}{The Blue Team wins if you are in the same room as the Red Fist at the end of the game.}
+\includepdf[pages={1}]{cardsbackground.pdf}
+
+
+
+
+% \mixedcard{Mastermind}{Know it all!}{At the end of the game, before anyone reveal their cards, you must publically announce the colour of \emph{every} player. If correct, you win and everyone else loses.\\\vspace{0.3cm} You can use either colour for Colour Share or Reveal.}
+
+\end{center}
+\end{document}
