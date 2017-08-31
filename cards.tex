@@ -1,6 +1,4 @@
 \documentclass[a4paper, landscape]{article}
-\usepackage[margin=10mm]{geometry}
-
 
 \input{include/cardLibs.tex}
 \input{include/cardColours.tex}
@@ -11,38 +9,15 @@
 \begin{center}
 
 
-  \redcard{Bomber}{Boom!}{When the game ends, everyone in your room gains the \condition{dead} condition\\\vspace{0.5cm} Red team wins if the \character{President} gains the \condition{dead} condition.}
-  \redcard{Engineer}{Arm the bomber!}{The \character{Bomber} must card share with the \character{Engineer} in order to explode.\\\vspace{0.5cm} You win if the \character{Bomber} explodes, and the \character{President} gains the \condition{dead} condition.}
-  \redcard{Martyr}{Spare Bomb!}{You are the backup for the \character{Bomber}: If the \character{Bomber} dies, or is not in the game, you take his responsibilities.\\\vspace{0.5cm} You win if the \character{President} gains the \condition{dead} condition.}
-  \redcard{Tinkerer}{Not quite engineer!}{ You are the backup for the \character{Engineer}: If the \character{Engineer} dies, or is not in the game, you take his responsibilities.\\\vspace{0.4cm} The \character{Bomber} must card share with the \character{Engineer} in order to explode.\\\vspace{0.4cm} You win if the \character{Bomber} explodes, and the \character{President} gains the \condition{dead} condition.}
-  \vspace{1mm}
-
-  \bluecard{President}{Keep your head down!}{Blue Team wins if you do not gain the \condition{dead} condition.}
-  \bluecard{Doctor}{Did someone call for a doctor?}{The \character{President} must card share with the \character{Doctor} to not die at the end of the game.\\\vspace{0.5cm} You win if the \character{President} does not gain the \condition{dead} condition.}
-  \bluecard{Nurse}{Get me 50cc, stat!}{You are the backup for the \character{Doctor}: If the \character{Doctor} dies, or is not in the game, you take his responsibilities.\\\vspace{0.5cm} The \character{President} must card share with the \character{Doctor} to not die at the end of the game.}
-  \bluecard{Vice-President}{The right hand man!}{You are the backup for the \character{President}: If the \character{President} dies, or is not in the game, you take his responsibilities.}
-
-  \includepdf[pages={1}]{cardsbackground.pdf}
-
+  
   \newpage
-  \redcard{Red team}{Help the bomber!}{Red team wins if the \character{President} gains the \condition{dead} condition due to the \character{Bomber} exploding.}
-  \redcard{Red team}{Help the bomber!}{Red team wins if the \character{President} gains the \condition{dead} condition due to the \character{Bomber} exploding.}
-  \redcard{Red team}{Help the bomber!}{Red team wins if the \character{President} gains the \condition{dead} condition due to the \character{Bomber} exploding.}
-  \redcard{Red team}{Help the bomber!}{Red team wins if the \character{President} gains the \condition{dead} condition due to the \character{Bomber} exploding.}
 
-
-  \vspace{1mm}
-  \bluecard{Blue Team}{Keep the President safe!}{You win if the \character{President} does not gain the \condition{dead} condition due to the \character{Bomber} exploding.}
-  \bluecard{Blue Team}{Keep the President safe!}{You win if the \character{President} does not gain the \condition{dead} condition due to the \character{Bomber} exploding.}
-  \bluecard{Blue Team}{Keep the President safe!}{You win if the \character{President} does not gain the \condition{dead} condition due to the \character{Bomber} exploding.}
-  \bluecard{Blue Team}{Keep the President safe!}{You win if the \character{President} does not gain the \condition{dead} condition due to the \character{Bomber} exploding.}
 
   %
   % \redcard{Red Team}{Find your team mates!}{Find the President, make sure he doesn't make it out alive.}
   % \redcard{Player}{Find your team mates!}{Find the President, make sure he doesn't make it out alive.}
   % \redcard{Player}{Find your team mates!}{Find the President, make sure he doesn't make it out alive.}
   % \redcard{Player}{Find your team mates!}{Find the President, make sure he doesn't make it out alive.}
-  \includepdf[pages={1}]{cardsbackground.pdf}
 
 \newpage
 
@@ -56,7 +31,7 @@
     \bluecard{Spy}{Double Agent!}{The top of your card says BLUE, but you are actually on TEAM RED.}
     \bluecard{Coy Boy}{Someones a little shy...}{You are \condition{coy}: You may only Colour Share. You may not Colour Reveal, Card reveal, or Card Share.\\\vspace{0.5cm} The \condition{foolish} and \condition{coy} conditions cancel eachother out.}
     \bluecard{Negotiator}{It's all or nothing!}{You are \condition{Savvy}: You may only Card Share. You may not Colour Share, Colour Reveal, Card Reveal.}
-\includepdf[pages={1}]{cardsbackground.pdf}
+\backpanel
 
     \newpage
     \redcard{Devil}{Liar, liar, pants on fire!}{You are a \condition{liar}: you must always lie when speaking. You do not have to lie if it's not verbal.\\\vspace{0.5cm} The \condition{honest} and \condition{liar} conditions cancel eachother out.}
@@ -70,7 +45,7 @@
     \bluecard{Blind}{No peeking!}{You are \condition{blind}: Do your best to never open your eyes.\\\vspace{0.5cm} Don’t worry, it is a short game.}
     \bluecard{Mime}{...}{Do your best to not make any noise.}
 
-\includepdf[pages={1}]{cardsbackground.pdf}
+\backpanel
 
     \newpage
 
@@ -85,7 +60,7 @@
     \redcard{Interrogator}{Tell me what you know!}{Once per round you may privately reveal to any player in the room and ask them a single yes/no question to which they must answer honestly. If they sincerely don’t know the answer to the question, then they should indicate such}
     \bluecard{Interrogator}{Tell me what you know!}{Once per round you may privately reveal to any player in the room and ask them a single yes/no question to which they must answer honestly. If they sincerely don’t know the answer to the question, then they should indicate such}
 
-\includepdf[pages={1}]{cardsbackground.pdf}
+\backpanel
 
 \newpage
 \greycard{Ahab}{Ahoy Matey!}{You win if \character{Moby} gains the \condition{dead} condition, and you do not.}
@@ -98,7 +73,7 @@
 \greycard{Sniper}{I never miss a shot!}{At the end of the game, before anyone reveals their cards, you must publically announce any one player in the game to shoot. You win if you shoot the \character{Target}.\\\vspace{0.25cm} The shot player gains the \condition{dead} condition, this triggers backup characters, if available.}
 \greycard{Target}{Keep it secret, keep it safe!}{You win if the \character{Sniper} does not shoot you at the end of the game.}
 
-\includepdf[pages={1}]{cardsbackground.pdf}
+\backpanel
 
 \newpage
 
@@ -111,7 +86,7 @@
 \greycard{Juliet}{Find that boy!}{You win if you are in the same room as \character{Romeo} and you both gain the \condition{dead} condition at the end of the game.}
 \greycard{Romeo}{Find that boy!}{You win if you are in the same room as \character{Juliet} and you both gain the \condition{dead} condition at the end of the game.}
 
-\includepdf[pages={1}]{cardsbackground.pdf}
+\backpanel
 \newpage
 
 \redcard{Ambassador}{Loud and proud!}{You must immediately permanently publically reveal your card.\\\vspace{0.5cm} You may move freely between rooms, and cannot be selected as a hostage. However, you cannot take part in any vote.\\\vspace{0.5cm} You are \condition{Immune}: You cannot be affected by any conditions.}
@@ -125,7 +100,7 @@
 \bluecard{Bully}{Don't take no for an answer!}{When a player agrees to color share with you, private reveal instead. They must private reveal their card too.}
 \redcard{Bully}{Don't take no for an answer!}{When a player agrees to color share with you, private reveal instead. They must private reveal their card too.}
 
-\includepdf[pages={1}]{cardsbackground.pdf}
+\backpanel
 
 \newpage
 \greycard{Gambler}{It's all or nothing}{Before the last round begins, you must publically announce which team you think is going to win. If you are correct, you win. If not, you lose.}
@@ -139,7 +114,7 @@
 \greycard{Survivor}{I'm a survivor,\\ I'm not gon' give up...}{You win if you do not gain the \condition{dead} condition.}
 \greycard{Intern}{Do your best!}{You win if you are in the same room as the \character{President} when the game ends.}
 
-\includepdf[pages={1}]{cardsbackground.pdf}
+\backpanel
 \newpage
 
 \greycard{Born Leader}{Born to lead!}{You win if you are a \character{Leader} at the end of the game.}
@@ -152,7 +127,7 @@
 \greycard{Victim}{That bomb's got your name on it!}{You win if you gain the \condition{dead} condition due to the Bomber exploding.}
 \redcard{Red Fist}{Duck and dodge!}{The Red Team wins if you are not in the same room as the Blue Drone at the end of the game.}
 \bluecard{Blue Drone}{Beep, bop, boop!}{The Blue Team wins if you are in the same room as the Red Fist at the end of the game.}
-\includepdf[pages={1}]{cardsbackground.pdf}
+\backpanel
 
 
 
