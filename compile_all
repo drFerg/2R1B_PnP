@@ -1,10 +1,34 @@
+remove_backpanel () {
+	awk '! ($1 ~ /\\backpanel/)' $1
+}
+
+# include card backs if the user adds a -b flag
+include_card_backs=false
+
+while getopts ":b" opt; do
+	case $opt in 
+		b)
+			echo "including card backs!"
+			include_card_backs=true
+			;;
+	esac
+done
+
 # create a temporary directory for staging. Also used for storing logs afterwards
 mkdir -p temp
+
 
 echo "compiling..."
 # convert tex files into pdfs
 for file in $(ls src); do
-	pdflatex -output-directory temp src/${file} > /dev/null
+	if [ "$include_card_backs" = true ] ; then
+		# run a normal pdflatex command if card backs are included
+		pdflatex -output-directory temp src/${file} > /dev/null
+	else
+		# use awk function to strip backpanels out of pdfs
+		filename=$(basename ${file} .tex)
+		remove_backpanel src/${file} | pdflatex -jobname=${filename} -output-directory temp > /dev/null
+	fi
 done
 
 rm temp/*.aux
