@@ -13,8 +13,8 @@ Two Rooms and A Boom
 To Use
 ------
 
-Simply download the pre-made pdfs...
+Simply download the pre-made pdfs in the `pdf/` directory
 
 or
 
-Customise or create a new deck of cards using the pre-made templates and compile using LaTeX.
+Customise or create a new deck of cards using the pre-made templates and compile using LaTeX (or the `compile_all` script).
