@@ -221,3 +221,6 @@ TSWLatexianTemp*
 
 # OSX
 .DS_STORE
+
+# vim
+*.swp
