@@ -1,0 +1,15 @@
+# create a temporary directory for staging. Also used for storing logs afterwards
+mkdir -p temp
+
+echo "compiling..."
+# convert tex files into pdfs
+for file in $(ls src); do
+	pdflatex -output-directory temp src/${file} > /dev/null
+done
+
+rm temp/*.aux
+
+mv temp/*.pdf pdf/
+
+echo "done."
+echo "logs can be found in temp/"
