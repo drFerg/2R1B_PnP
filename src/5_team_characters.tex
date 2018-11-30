@@ -1,0 +1,214 @@
+\documentclass[a4paper, landscape]{article}
+
+\input{include/cardLibs.tex}
+\input{include/cardColours.tex}
+\input{include/cardStyles.tex}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+
+\redcard{Shy Guy}{Shhhhh!}{
+	You are \condition{shy}: You may not reveal any part of your card in any
+	way.
+	\\\vspace{0.5cm} 
+	The \condition{foolish} and \condition{shy} conditions cancel each other
+	out.
+}
+\bluecard{Shy Guy}{Shhhhh!}{
+	You are \condition{shy}: You may not reveal any part of your card in any
+	way.\\\vspace{0.5cm} The \condition{foolish} and \condition{shy}
+	conditions cancel eachother out.
+}
+\redcard{Spy}{Double Agent!}{
+	Your card says RED, but you are actually on TEAM BLUE.
+	}
+\bluecard{Spy}{Double Agent!}{
+	Your card says BLUE, but you are actually on TEAM RED.
+}
+\redcard{Coy Boy}{Someones a little shy...}{ 
+	You are \condition{coy}: You may only Colour Share. You may not Colour
+	Reveal, Card reveal, or Card Share.
+	\\\vspace{0.5cm} 
+	The \condition{foolish} and \condition{coy} conditions cancel each other
+	out.
+}
+\bluecard{Coy Boy}{Someones a little shy...}{
+	You are \condition{coy}: You may only Colour Share. You may not Colour
+	Reveal, Card reveal, or Card Share.
+	\\\vspace{0.5cm} 
+	The \condition{foolish} and \condition{coy} conditions cancel each other out.
+}
+\redcard{Negotiator}{It's all or nothing!}{
+	You are \condition{Savvy}: You may only Card Share. You may not Colour
+	Share, Colour Reveal, Card Reveal.
+}
+\bluecard{Negotiator}{It's all or nothing!}{
+	You are \condition{Savvy}: You may only Card Share. You may not Colour
+	Share, Colour Reveal, Card Reveal.
+}
+
+\backpanel
+\newpage
+
+\redcard{Devil}{Liar, liar, pants on fire!}{
+	You are a \condition{liar}: you must always lie when speaking. You do
+	not have to lie if it's not verbal.
+	\\\vspace{0.5cm} 
+	The \condition{honest} and \condition{liar} conditions cancel each other
+	out.
+}
+\bluecard{Devil}{Liar, liar, pants on fire!}{
+	You are a \condition{liar}: you must always lie when speaking. You do
+	not have to lie if it's not verbal.
+	\\\vspace{0.5cm} 
+	The \condition{honest} and \condition{liar} conditions cancel eachother
+	out.
+} 
+\redcard{Angel}{The truth, the whole truth and nothing but the truth!}{
+	You are \condition{honest}: You must always tell the truth when
+	speaking. You do not have to tell the truth if it's not
+	verbal.
+	\\\vspace{0.5cm} 
+	The \condition{liar} and \condition{honest} conditions cancel each other
+	out.
+}
+\bluecard{Angel}{The truth, the whole truth and nothing but the truth!}{
+	You are \condition{honest}: You must always tell the truth when
+	speaking. You do not have to tell the truth if it's not
+	verbal.
+	\\\vspace{0.5cm} 
+	The \condition{liar} and \condition{honest} conditions cancel each other
+	out.
+} 
+\redcard{Blind}{No peeking!}{
+	You are \condition{blind}: Do your best to never open your
+	eyes.\\\vspace{0.5cm} Don’t worry, it's a short game.
+}
+\bluecard{Blind}{No peeking!}{
+	You are \condition{blind}: Do your best to never open your
+	eyes.
+	\\\vspace{0.5cm} 
+	Don’t worry, it's a short game.
+} 
+\redcard{Mime}{...}{
+	Do your best to not make any noise.
+}
+\bluecard{Mime}{...}{
+	Do your best to not make any noise.
+} 
+
+\backpanel
+\newpage 
+
+\redcard{Trader}{Have I got a deal for you!}{
+	You may trade your card for the buried card. You may not peek at the
+	card before trading. You assume all powers and the allegiance of your
+	newly acquired card.
+	\\\vspace{0.5cm} 
+	If you trade for another \character{Trader} card, you may not use its
+	power before the next round.
+} 
+\bluecard{Trader}{Have I got a deal for you!}{
+	You may trade your card for the buried card. You may not peek at the
+	card before trading. You assume all powers and the allegiance of your
+	newly acquired card.
+	\\\vspace{0.5cm} 
+	If you trade for another \character{Trader} card, you may not use its
+	power before the next round.
+}
+\redcard{Voyeur}{Take a sneaky peak!}{
+	At any time, you may look at the buried card. Ooh la la!
+} 
+\bluecard{Voyeur}{Take a sneaky peak!}{
+	At any time, you may look at the buried card. Ooh la la!
+}
+\redcard{Interrogator}{Swear to me!}{ 
+	Once per round you may privately reveal to any player in the room and
+	ask them a single yes/no question to which they must answer honestly. If
+	they sincerely don’t know the answer to the question, then they should
+	indicate such.  
+} 
+\bluecard{Interrogator}{Swear to me!}{ 
+	Once per round you may privately reveal to any player in the room and
+	ask them a single yes/no question to which they must answer honestly. If
+	they sincerely don’t know the answer to the question, then they should
+	indicate such.  
+} 
+\redcard{Ambassador}{Diplmatic immunity!}{
+	You must immediately permanently publically reveal your
+	card.
+	\\\vspace{0.5cm} 
+	You may move freely between rooms, and cannot be selected as a hostage.
+	However, you cannot take part in any vote.
+	\\\vspace{0.5cm} 
+	You are \condition{Immune}: You cannot be affected by any conditions.
+} 
+\bluecard{Ambassador}{Diplomatic immunity!}{
+	You must immediately permanently publically reveal your card.
+	\\\vspace{0.5cm} 
+	You may move freely between rooms, and cannot be selected as a hostage.
+	However, you cannot take part in any vote.
+	\\\vspace{0.5cm} 
+	You are \condition{Immune}: You cannot be affected by any conditions.
+} 
+
+\backpanel
+\newpage
+
+\redcard{Agent}{No-one gets in your way!}{
+	Once per round, you may privately reveal your card to a player and force
+	that player to card share with you. You must verbally say to the target
+	player, "I’m the AGENT. You MUST reveal your card to me.
+	\\\vspace{0.25cm} 
+	The Agent power works even on characters that normally can't card share
+	(e.g. Shy Guy)"
+}
+\bluecard{Agent}{No-one gets in your way!}{
+	Once per round, you may privately reveal your card to a player and force
+	that player to card share with you. You must verbally say to the target
+	player, "I’m the AGENT. You MUST reveal your card to me.
+	\\\vspace{0.25cm} 
+	The Agent power works even on characters that normally can't card share
+	(e.g. Shy Guy)"
+}
+\redcard{Bouncer}{Send them packing!}{
+	If you are in a room that has more players than the other room, you may
+	privately reveal your card to any player and verbally tell them, “get
+	out!” When you do, that player must immediately change rooms. You may do
+	this at any time EXCEPT FOR THE LAST ROUND.
+} 
+\bluecard{Bouncer}{Send them packing!}{
+	If you are in a room that has more players than the other room, you may
+	privately reveal your card to any player and verbally tell them, “get
+	out!” When you do, that player must immediately change rooms. You may do
+	this at any time EXCEPT FOR THE LAST ROUND.
+} 
+\redcard{Conman}{You can trust me.}{
+	When a player agrees to color share with you, private reveal instead.
+	They must private reveal their card too.
+}
+\bluecard{Conman}{You can trust me.}{
+	When a player agrees to color share with you, private reveal instead.
+	They must private reveal their card too.
+}
+\redcard{Red Fist}{Duck and dodge!}{
+	The Red Team wins if you are not in the same room as the Blue Drone at
+	the end of the game.
+} 
+\bluecard{Blue Drone}{Beep, bop, boop!}{
+	The Blue Team wins if you are in the same room as the Red Fist at the
+	end of the game.
+}
+\backpanel
+
+
+
+
+% \mixedcard{Mastermind}{Know it all!}{At the end of the game, before anyone
+% reveal their cards, you must publically announce the colour of \emph{every}
+% player. If correct, you win and everyone else loses.\\\vspace{0.3cm} You can
+% use either colour for Colour Share or Reveal.}
+
+\end{center}
+\end{document}
