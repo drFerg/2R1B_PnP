@@ -1,0 +1,70 @@
+\documentclass[a4paper, landscape]{article}
+
+\input{include/cardLibs.tex}
+\input{include/cardColours.tex}
+\input{include/cardStyles.tex}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+
+\greycard{Private Eye}{WATSON!!!}{
+	At the end of the game, before anyone else reveals their cards, you must
+	publicly announce the identity of the buried card. If correct, you win.
+	If incorrect, you lose.
+}
+\greycard{Gambler}{It's all or nothing}{
+	Before the last round begins, you must publically announce which team
+	you think is going to win. If you are correct, you win. If not, you
+	lose.
+} 
+\greycard{Hot Potato}{Hot, hot, hot!!!}{
+	You lose at the end of the game
+	\\\vspace{0.5cm} 
+	Any player that card shares or color shares with you must immediately
+	trade cards with you: You gain their card, and assume their previous
+	role. The other player becomes the Hot Potato.
+} 
+\greycard{Born Leader}{Born to lead!}{
+	You win if you are a \character{Leader} at the end of the game.
+} 
+\greycard{Born Leader}{Born to lead!}{
+	You win if you are a \character{Leader} at the end of the game.
+}
+\greycard{Born Leader}{Born to lead!}{
+	You win if you are a \character{Leader} at the end of the game.
+}
+\greycard{Anarchist}{I like to watch the world burn!}{
+	You win if you helped overthrow a \character{Leader} in the majority of
+	rounds.
+}
+\greycard{Minion}{Master must always lead!}{
+	You win if a \character{Leader} is never overthrown in the same room as
+	you.
+}
+
+\backpanel
+\newpage
+
+\greycard{Telepath}{See into the future...}{
+	Before the last hostage exchange, you must publically announce that you
+	are the \character{Telepath} and predict which player is coming into
+	your current room. You win if you are correct.
+}
+\purplecard{Amnesiac}{Whose team am I on again???}{
+	At the end of the game, before anyone else reveals their cards, you must
+	declare which team you are on by saying, ``I remember which team I am
+	on. I am on team ...''. Choosing either: The blue team, the red team, or
+	nobody's team. If you choose the team with a minority of players (or
+	picked nobody's team in case of a tie), you win.
+}
+
+\backpanel
+
+% \mixedcard{Mastermind}{Know it all!}{At the end of the game, before anyone
+% reveal their cards, you must publically announce the colour of \emph{every}
+% player. If correct, you win and everyone else loses.\\\vspace{0.3cm} You can
+% use either colour for Colour Share or Reveal.}
+
+\end{center}
+\end{document}
